@@ -16,8 +16,13 @@ while op == 1:
     centena = (numero_secreto % 1000) // 100
     dezena = (numero_secreto % 100) // 10
     unidade = numero_secreto % 10
+    controlemilhar = 0
+    controlecentena = 0
+    controledezena = 0
+    controleunidade = 0
     tentativas = 0
     print("\nUma nova rodada começou!")
+    print(numero_secreto)
     while tentativas < 10:
         certos = ""
         tentativa = int(input(f"Tentativa {tentativas + 1}/10: Digite seu palpite: "))
@@ -33,29 +38,38 @@ while op == 1:
             tentativas = 10
         else:
             print("Errado!")
-            if milharE == milhar:
-                certos = f"{milhar}"
+            if milharE == milhar and controlemilhar == 0:
+               controlemilhar = 1
+            if centenaE == centena and controlecentena == 0:
+                controlecentena = 1
+            if dezenaE == dezena and controledezena == 0:
+                controledezena = 1
+            if unidadeE == unidade and controleunidade == 0:
+                controleunidade = 1
+            if controlemilhar == 1:
+                certos += f'{milhar}'
             else:
-                certos = certos + "_"
-            if centenaE == centena:
-                certos = certos + f"{centena}"
+                certos += "_"
+            if controlecentena == 1:
+                certos += f'{centena}'
             else:
-                certos = certos + "_"
-            if dezenaE == dezena:
-                certos = certos + f"{dezena}"
+                certos += "_"
+            if controledezena == 1:
+                certos += f'{dezena}'
             else:
-                certos = certos + "_"
-            if unidadeE == unidade:
-                certos = certos + f"{unidade}"
+                certos += "_"
+            if controleunidade == 1:
+                certos += f'{unidade}'
             else:
-                certos = certos + "_"
+                certos += "_"
             print("", certos)
             print()
             if tentativas >= 5:
-                if tentativa > numero_secreto:
-                    print("Dica: O número secreto é menor!")
-                elif tentativa < numero_secreto:
-                    print("Dica: O número secreto é maior!")
-    if tentativas == 10:
+                if centena % 2 == 0:
+                    print("Dica: O segundo dígito é par!")
+                else:
+                    print("Dica: O segundo dígito é ímpar!")
+    if tentativas == 10 and tentativa != numero_secreto:
+        print("Você não conseguiu adivinhar o número secreto.")
         print(f"O número secreto era {numero_secreto}.")
     op = int(input("Deseja jogar novamente? (1 - Sim, 0 - Não): "))
