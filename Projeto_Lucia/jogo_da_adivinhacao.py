@@ -22,7 +22,6 @@ while op == 1:
     controleunidade = 0
     tentativas = 0
     print("\nUma nova rodada começou!")
-    print(numero_secreto)
     while tentativas < 10:
         certos = ""
         tentativa = int(input(f"Tentativa {tentativas + 1}/10: Digite seu palpite: "))
