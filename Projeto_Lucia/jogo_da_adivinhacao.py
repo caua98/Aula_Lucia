@@ -64,10 +64,16 @@ while op == 1:
             print("", certos)
             print()
             if tentativas >= 5:
-                if centena % 2 == 0:
-                    print("Dica: O segundo dígito é par!")
-                else:
-                    print("Dica: O segundo dígito é ímpar!")
+                if centena % 2 == 0 and controlecentena == 0:
+                    print("Dica: O segundo dígito (centena) é par!")
+                elif centena % 2 != 0 and controlecentena == 0:
+                    print("Dica: O segundo dígito (centena) é ímpar!")
+                elif dezena % 2 == 0 and controledezena == 0:
+                    print("Dica: O terceiro dígito (dezena) é par!")
+                elif dezena % 2 != 0 and controledezena == 0:
+                    print("Dica: O terceiro dígito (dezena) é ímpar!")
+                
+                
     if tentativas == 10 and tentativa != numero_secreto:
         print("Você não conseguiu adivinhar o número secreto.")
         print(f"O número secreto era {numero_secreto}.")
