@@ -2,7 +2,6 @@ import random
 
 op = 1
 while op == 1:
-    #Inicialização do jogo/Interface gráfica
     print("===================================")
     print("       Bem-vindo ao Jogo!")
     print("===================================")
@@ -12,8 +11,6 @@ while op == 1:
     print("A partir da 5ª tentativa, você receberá dicas.")
     print("Boa sorte!")
     print("===================================\n")
-
-    # Gerando o número secreto e inicializando variáveis
     numero_secreto = random.randint(1000, 9999)
     milhar = numero_secreto // 1000
     centena = (numero_secreto % 1000) // 100
@@ -27,26 +24,18 @@ while op == 1:
     print("\nUma nova rodada começou!")
     while tentativas < 10:
         certos = ""
-
-        # Solicita o palpite do usuário e verifica se está dentro do intervalo
         tentativa = int(input(f"Tentativa {tentativas + 1}/10: Digite seu palpite: "))
         while tentativa < 1000 or tentativa > 9999:
             tentativa = int(input("Por favor, insira um número entre 1000 e 9999: "))
-        
-        #Digitos da tentativa
         tentativas += 1
         milharE = tentativa // 1000
         centenaE = (tentativa % 1000) // 100
         dezenaE = (tentativa % 100) // 10
         unidadeE = tentativa % 10
-
-        #Verifica se o número é igual ao número secreto
         if tentativa == numero_secreto:
             print(f"Parabéns! Você acertou o número secreto {numero_secreto} em {tentativas} tentativas!")
             tentativas = 10
         else:
-
-            #Verifica os dígitos corretos
             print("Errado!")
             if milharE == milhar and controlemilhar == 0:
                controlemilhar = 1
@@ -56,8 +45,6 @@ while op == 1:
                 controledezena = 1
             if unidadeE == unidade and controleunidade == 0:
                 controleunidade = 1
-
-            # Mostrando os dígitos corretos
             if controlemilhar == 1:
                 certos += f'{milhar}'
             else:
@@ -76,19 +63,13 @@ while op == 1:
                 certos += "_"
             print("", certos)
             print()
-
-            #Teste de dicas
             if tentativas >= 5:
                 if centena % 2 == 0:
                     print("Dica: O segundo dígito é par!")
                 else:
                     print("Dica: O segundo dígito é ímpar!")
-
-    # Verifica se o usuário esgotou as tentativas
     if tentativas == 10 and tentativa != numero_secreto:
         print("Você não conseguiu adivinhar o número secreto.")
         print(f"O número secreto era {numero_secreto}.")
-
-    #Pergunta se o usuário deseja jogar novamente
     print("===================================")
     op = int(input("Deseja jogar novamente? (1 - Sim, 0 - Não): "))
