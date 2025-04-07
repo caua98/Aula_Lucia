@@ -65,15 +65,63 @@ while op == 1:
             print()
             if tentativas >= 5:
                 if centena % 2 == 0 and controlecentena == 0:
-                    print("Dica: O segundo dígito (centena) é par!")
+                    if tentativas % 2 == 0 and tentativas != 10 and centena > 5:
+                        print("Dica: O segundo dígito (centena) é par e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and centena < 5:
+                        print("Dica: O segundo dígito (centena) é par e menor que 5!")
+                    else:
+                        print("Dica: O segundo dígito (centena) é par!")
                 elif centena % 2 != 0 and controlecentena == 0:
-                    print("Dica: O segundo dígito (centena) é ímpar!")
+                    if tentativas % 2 == 0 and tentativas != 10 and centena > 5:
+                        print("Dica: O segundo dígito (centena) é ímpar e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and centena < 5:
+                        print("Dica: O segundo dígito (centena) é ímpar e menor que 5!")
+                    else:
+                        print("Dica: O segundo dígito (centena) é ímpar!")
                 elif dezena % 2 == 0 and controledezena == 0:
-                    print("Dica: O terceiro dígito (dezena) é par!")
+                    if tentativas % 2 == 0 and tentativas != 10 and dezena > 5:
+                        print("Dica: O terceiro dígito (dezena) é par e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and dezena < 5:
+                        print("Dica: O terceiro dígito (dezena) é par e menor que 5!")
+                    else:
+                        print("Dica: O terceiro dígito (dezena) é par!")
                 elif dezena % 2 != 0 and controledezena == 0:
-                    print("Dica: O terceiro dígito (dezena) é ímpar!")
+                    if tentativas % 2 == 0 and tentativas != 10 and dezena > 5:
+                        print("Dica: O terceiro dígito (dezena) é ímpar e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and dezena < 5:
+                        print("Dica: O terceiro dígito (dezena) é ímpar e menor que 5!")
+                    else:
+                        print("Dica: O terceiro dígito (dezena) é ímpar!")
+                elif unidade % 2 == 0 and controleunidade == 0:
+                    if tentativas % 2 == 0 and tentativas != 10 and unidade > 5:
+                        print("Dica: O quarto dígito (unidade) é par e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and unidade < 5:
+                        print("Dica: O quarto dígito (unidade) é par e menor que 5!")
+                    else:
+                        print("Dica: O quarto dígito (unidade) é par!")
+                elif unidade % 2 != 0 and controleunidade == 0:
+                    if tentativas % 2 == 0 and tentativas != 10 and unidade > 5:
+                        print("Dica: O quarto dígito (unidade) é ímpar e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and unidade < 5:
+                        print("Dica: O quarto dígito (unidade) é ímpar e menor que 5!")
+                    else:
+                        print("Dica: O quarto dígito (unidade) é ímpar!")
+                elif milhar % 2 == 0 and controlemilhar == 0:
+                    if tentativas % 2 == 0 and tentativas != 10 and milhar > 5:
+                        print("Dica: O primeiro dígito (milhar) é par e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and milhar < 5:
+                        print("Dica: O primeiro dígito (milhar) é par e menor que 5!")
+                    else:
+                        print("Dica: O primeiro dígito (milhar) é par!")
+                elif milhar % 2 != 0 and controlemilhar == 0:
+                    if tentativas % 2 == 0 and tentativas != 10 and milhar > 5:
+                        print("Dica: O segundo dígito (centena) é ímpar e maior que 5!")
+                    elif tentativas % 2 == 0 and tentativas != 10 and milhar < 5:
+                        print("Dica: O primeiro dígito (milhar) é ímpar e menor que 5!")
+                    else:
+                        print("Dica: O primeiro dígito (milhar) é ímpar!")
                 
-                
+     
     if tentativas == 10 and tentativa != numero_secreto:
         print("Você não conseguiu adivinhar o número secreto.")
         print(f"O número secreto era {numero_secreto}.")
