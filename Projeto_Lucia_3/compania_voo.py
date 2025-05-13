@@ -102,11 +102,13 @@ def cancelar_passagem():
     codigo_voo = input("Digite o código do voo: ")
     
     if codigo_voo in voos and cpf in pessoas:
-        if pessoas[cpf] in voos[codigo_voo]["passageiros"]:
-            voos[codigo_voo]["passageiros"].remove(pessoas[cpf])
-            print(f"Passagem cancelada com sucesso para o passageiro {pessoas[cpf]['nome']} no voo {codigo_voo}.")
-        else:
-            print("Passageiro não encontrado nesse voo.")
+        # Verifica se o CPF está na lista de passageiros do voo
+        for passageiro in voos[codigo_voo]["passageiros"]:
+            if passageiro["cpf"] == cpf:
+                voos[codigo_voo]["passageiros"].remove(passageiro)
+                print(f"Passagem cancelada com sucesso para o passageiro {pessoas[cpf]['nome']} no voo {codigo_voo}.")
+                return
+        print("Passageiro não encontrado nesse voo.")
     else:
         print("Voo ou passageiro não encontrado.")
 
