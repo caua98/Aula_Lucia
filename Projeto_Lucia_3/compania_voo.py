@@ -2,6 +2,9 @@ voos = {}
 pessoas = {}
 def cadastrar_voo():
     codigo = input("Digite o código do voo: ")
+    if codigo in voos:
+        print("Código de voo já cadastrado.")
+        return
     origem = input("Digite a origem do voo: ")
     escalas = int(input("Digite o número de escalas do voo: "))
     preco = float(input("Digite o preço do voo: "))
@@ -23,6 +26,14 @@ def cadastrar_voo():
     
 def vender_passagem():
     cpf = input("Digite o CPF do passageiro: ")
+    
+    # Verifica se o CPF já está cadastrado em algum voo
+    for codigo, voo in voos.items():
+        if cpf in [p["cpf"] for p in voo["passageiros"]]:
+            print(f"O CPF {cpf} já está cadastrado no voo {codigo}.")
+            return  # Sai da função se o CPF já estiver cadastrado
+    
+    # Caso o CPF não esteja cadastrado, prossegue com o cadastro
     nome = input("Digite o nome do passageiro: ")
     documento = input("Digite o documento do passageiro (RG): ")
     telefone = input("Digite o telefone do passageiro: ")
@@ -39,7 +50,7 @@ def vender_passagem():
     
     if codigo_voo in voos:
         if len(voos[codigo_voo]["passageiros"]) < voos[codigo_voo]["capacidade"]:
-            voos[codigo_voo]["passageiros"].append(pessoas[cpf])
+            voos[codigo_voo]["passageiros"].append({"cpf": cpf, **pessoas[cpf]})
             print(f"Passageiro {nome} cadastrado com sucesso no voo {codigo_voo}.")
         else:
             print(f"O voo {codigo_voo} está cheio.")
