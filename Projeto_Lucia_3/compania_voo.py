@@ -26,7 +26,7 @@ def cadastrar_voo():
     
 def vender_passagem():
     cpf = input("Digite o CPF do passageiro: ")
-    if cpf in pessoas:
+    if cpf in pessoas.keys():
         print("Passageiro já cadastrado.")
         return
     nome = input("Digite o nome do passageiro: ")
@@ -125,6 +125,7 @@ def listar_passageiros_voo():
 
 op = "S"
 while op == "S":
+    print("#" * 30)
     print("1 - Cadastrar voo")
     print("2 - Vender passagem")
     print("3 - Listar voos disponíveis")
