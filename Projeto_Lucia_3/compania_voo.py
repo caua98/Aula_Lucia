@@ -26,6 +26,9 @@ def cadastrar_voo():
     
 def vender_passagem():
     cpf = input("Digite o CPF do passageiro: ")
+    if cpf in pessoas:
+        print("Passageiro já cadastrado.")
+        return
     nome = input("Digite o nome do passageiro: ")
     documento = input("Digite o documento do passageiro (RG): ")
     telefone = input("Digite o telefone do passageiro: ")
