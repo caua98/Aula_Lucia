@@ -21,7 +21,7 @@ def cadastrar_voo():
         "hora": hora,
         "Preco": preco,
         "capacidade": capacidade,
-        "passageiros": []
+        "passageiros": [] 
     }
     
 def vender_passagem():
@@ -152,4 +152,3 @@ while op == "S":
     else:
         print("Opção inválida.")
     
-    op = input("Deseja continuar? (S/N): ").upper()
